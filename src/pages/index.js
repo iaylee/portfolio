@@ -1,9 +1,12 @@
 import React from 'react';
-import { MenuList, MenuListItem, Separator, styleReset } from 'react95';
+import { styleReset } from 'react95'; //MenuList, MenuListItem, Separator, 
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import styled from 'styled-components';
+
+import Navigation from '../components/navigation';
 
 /* Pick a theme of your choice */
-import original from 'react95/dist/themes/original';
+import lilac from 'react95/dist/themes/lilac';
 
 /* Original Windows95 font (optional) */
 import ms_sans_serif from "react95/dist/fonts/ms_sans_serif.woff2";
@@ -29,18 +32,21 @@ const GlobalStyles = createGlobalStyle`
   }
 `;
 
+
 const App = () => (
-  <div>
+  <main> 
     <GlobalStyles />
-    <ThemeProvider theme={original}>
-      <MenuList>
+    <ThemeProvider theme={lilac}>
+        <Navigation />
+      <h1> PROTOTYPE 0.0.1 </h1>
+      {/* <MenuList>
         <MenuListItem>🎤 Sing</MenuListItem>
         <MenuListItem>💃🏻 Dance</MenuListItem>
         <Separator />
         <MenuListItem disabled>😴 Sleep</MenuListItem>
-      </MenuList>
+      </MenuList> */}
     </ThemeProvider>
-  </div>
+  </main>
 );
 
 export default App;
