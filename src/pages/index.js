@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { styleReset } from 'react95'; //MenuList, MenuListItem, Separator, 
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import styled from 'styled-components';
 
-import Navigation from '../components/navigation';
+import Navigation from '../components/Navigation';
+import WindowComponent from '../components/WindowComponent';
 
 /* Pick a theme of your choice */
 import lilac from 'react95/dist/themes/lilac';
@@ -14,7 +15,6 @@ import ms_sans_serif_bold from "react95/dist/fonts/ms_sans_serif_bold.woff2";
 
 // Style reset clears default browser HTML element formatting and so removes inconsistencies
 const GlobalStyles = createGlobalStyle`
-  ${styleReset}
   @font-face {
     font-family: 'ms_sans_serif';
     src: url('${ms_sans_serif}') format('woff2');
@@ -27,26 +27,47 @@ const GlobalStyles = createGlobalStyle`
     font-weight: bold;
     font-style: normal
   }
-  body, * {
+  body {
     font-family: 'ms_sans_serif';
+    background-color: #452859;
+	color: white;
   }
 `;
 
-
 const App = () => (
-  <main> 
-    <GlobalStyles />
-    <ThemeProvider theme={lilac}>
-        <Navigation />
-      <h1> PROTOTYPE 0.0.1 </h1>
-      {/* <MenuList>
-        <MenuListItem>🎤 Sing</MenuListItem>
-        <MenuListItem>💃🏻 Dance</MenuListItem>
-        <Separator />
-        <MenuListItem disabled>😴 Sleep</MenuListItem>
-      </MenuList> */}
-    </ThemeProvider>
-  </main>
-);
+
+   <body>
+		<GlobalStyles />
+		<ThemeProvider theme={lilac}>
+			<header>
+			</header>
+
+
+			<main>
+				<WindowComponent
+					title="About" 
+					toolbar="true" 
+					first="File" 
+					second="Edit"
+					third="Save"
+				/>
+				{/* <MenuList>
+				<MenuListItem>🎤 Sing</MenuListItem>
+				<MenuListItem>💃🏻 Dance</MenuListItem>
+				<Separator />
+				<MenuListItem disabled>😴 Sleep</MenuListItem>
+				</MenuList> */}
+
+			</main>
+
+
+			<footer>
+				<Navigation />
+			</footer>
+
+		</ThemeProvider>
+	</body>
+
+   );
 
 export default App;
