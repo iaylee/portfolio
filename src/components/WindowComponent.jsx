@@ -62,7 +62,7 @@ const Wrapper = styled.div`
   }
 
   .inside-window {
-    background-color: white;
+    background-color: #D8D6F1;
   }
 `;
 
@@ -71,7 +71,7 @@ export default function WindowComponent(props) {
 
 	return (
       <Wrapper>
-      <Draggable handle=".handle" defaultPosition={{x: 500, y: 50}}>
+      <Draggable handle=".handle">
 
 			<Window resizable className='window'>
 
@@ -101,21 +101,7 @@ export default function WindowComponent(props) {
 				<WindowContent>
 					<ScrollView className='inside-window' style={{ width: '100%' }}>
 						<p>
-							When you set &quot;resizable&quot; prop, there will be drag handle
-							in the bottom right corner (but resizing itself must be handled by
-							you tho!)
-
-							When you set &quot;resizable&quot; prop, there will be drag handle
-							in the bottom right corner (but resizing itself must be handled by
-							you tho!)
-
-							When you set &quot;resizable&quot; prop, there will be drag handle
-							in the bottom right corner (but resizing itself must be handled by
-							you tho!)
-
-							When you set &quot;resizable&quot; prop, there will be drag handle
-							in the bottom right corner (but resizing itself must be handled by
-							you tho!)
+							{props.content}
 						</p>
 					</ScrollView>
 				</WindowContent>
