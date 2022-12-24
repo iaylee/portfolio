@@ -1,27 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Draggable from 'react-draggable';
 
 import {
-	Button,
-	Toolbar,
-	Window,
-	WindowContent,
-	ScrollView,
-	WindowHeader
+   Button,
+   Toolbar,
+   Window,
+   WindowContent,
+   ScrollView,
+   WindowHeader
 } from 'react95';
+
+
+import sunset from "../images/sunset.png"
 
 //implement closing window when clicked X button
 const Wrapper = styled.div`
   .window-title {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+   justify-content: space-between;
+    height: 25px;
   }
   .close-icon {
     display: inline-block;
-    width: 16px;
-    height: 16px;
+    width: 10px;
+    height: 10px;
     margin-left: -1px;
     margin-top: -1px;
     transform: rotateZ(45deg);
@@ -51,7 +55,7 @@ const Wrapper = styled.div`
     min-height: 200px;
   }
   .window:nth-child(2) {
-    margin: 2rem;
+    margin: 0.2rem;
   }
   .footer {
     display: block;
@@ -69,46 +73,43 @@ const Wrapper = styled.div`
 //Props: title, toolbar, [first, second, third]
 export default function WindowComponent(props) {
 
-	return (
+   return (
       <Wrapper>
-      <Draggable handle=".handle">
+         <Draggable handle=".handle">
 
-			<Window resizable className='window'>
+            <Window className='window'>
 
-				<WindowHeader className='window-title handle'>
-					<span>{props.title}</span>
+               <WindowHeader className='window-title handle'>
+               <span className='window-title' style={{justifyContent:'left'}}>
+                     <img src={props.icon} style={{ width: '15px', height: '15px', paddingRight: '0.5rem' }} />
+                     <span style={{ display: 'inline-block', fontSize: 12 }}>
+                        {props.title}
+                     </span>
 
-					<Button>
-						<span className='close-icon' />
-					</Button>
+               </span>
 
-				</WindowHeader>
-
-
-				{props.toolbar && (<Toolbar>
-					<Button variant='menu' size='sm'>
-						{props.first}
-					</Button>
-					<Button variant='menu' size='sm'>
-						{props.second}
-					</Button>
-					<Button variant='menu' size='sm' disabled>
-						{props.third}
-					</Button>
-				</Toolbar>)}
+               <Button style={{width:'18px', height:'18px'}}>
+                     <span className='close-icon' />
+                  </Button>
+               </WindowHeader>
 
 
-				<WindowContent>
-					<ScrollView className='inside-window' style={{ width: '100%' }}>
-						<p>
-							{props.content}
-						</p>
-					</ScrollView>
-				</WindowContent>
+               {props.toolbar && (<Toolbar style={{ height: '20px' }}>
+                  <Button variant='menu' size='sm' style={{ fontSize: 14 }}>
+                     {props.first}
+                  </Button>
+                  <Button variant='menu' size='sm' style={{ fontSize: 14 }}>
+                     {props.second}
+                  </Button>
+                  <Button variant='menu' size='sm' style={{ fontSize: 14 }} disabled>
+                     {props.third}
+                  </Button>
+               </Toolbar>)}
 
-			</Window>
-         
-      </Draggable>
-		</Wrapper>
-	);
-}
+            <img src={sunset} style={{ width: '350px', height: '200px'}}/>
+            </Window>
+
+         </Draggable>
+      </Wrapper>
+   );
+   }

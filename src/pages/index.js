@@ -12,10 +12,9 @@ import folder from "../images/folder.png"
 import trash from "../images/trash.png"
 import desk from "../images/desk.png"
 import palette from "../images/palette.png"
-/* Pick a theme of your choice */
+
 import lilac from 'react95/dist/themes/lilac';
 
-/* Original Windows95 font (optional) */
 import ms_sans_serif from "react95/dist/fonts/ms_sans_serif.woff2";
 import ms_sans_serif_bold from "react95/dist/fonts/ms_sans_serif_bold.woff2";
 
@@ -69,21 +68,22 @@ const App = () => (
 
          <main>
             <Desktop>
+               {/* clean this up */}
                <IconSection>
                   <Icon>
                      <a href='https://github.com/iaylee'>
-                        <img src={cdMusic} style={{ width: '60px', height: '60px', display: 'inline-block' }}></img>
+                        <img src={cdMusic} style={{ width: '40px', height: '40px', display: 'inline-block' }}></img>
                      </a>
-                     <p>
+                     <p style={{ fontSize: 14}}>
                         Music
                      </p>
                   </Icon>
 
                   <Icon>
                      <a href='https://github.com/iaylee'>
-                        <img src={notepad} style={{ width: '60px', height: '60px', display: 'inline-block' }}></img>
+                        <img src={notepad} style={{ width: '40px', height: '40px', display: 'inline-block' }}></img>
                      </a>
-                     <p>
+                     <p style={{ fontSize: 14}}>
                         Notes
                      </p>
                   </Icon>
@@ -91,18 +91,18 @@ const App = () => (
 
                   <Icon>
                      <a href='https://github.com/iaylee'>
-                        <img src={trash} style={{ width: '60px', height: '60px', display: 'inline-block' }}></img>
+                        <img src={trash} style={{ width: '40px', height: '40px', display: 'inline-block' }}></img>
                      </a>
-                     <p>
+                     <p style={{ fontSize: 14}}>
                         Recycle
                      </p>
                   </Icon>
 
                   <Icon>
                      <a href='https://github.com/iaylee'>
-                        <img src={palette} style={{ width: '60px', height: '60px', display: 'inline-block' }}></img>
+                        <img src={palette} style={{ width: '40px', height: '40px', display: 'inline-block' }}></img>
                      </a>
-                     <p>
+                     <p style={{ fontSize: 14}}>
                         Palette
                      </p>
                   </Icon>
@@ -111,18 +111,18 @@ const App = () => (
                <IconSection>
                   <Icon>
                      <a href='https://github.com/iaylee'>
-                        <img src={desk} style={{ width: '60px', height: '60px', display: 'inline-block' }}></img>
+                        <img src={desk} style={{ width: '40px', height: '40px', display: 'inline-block' }}></img>
                      </a>
-                     <p>
+                     <p style={{ fontSize: 14}}>
                         Desk
                      </p>
                   </Icon>
 
                   <Icon>
                      <a href='https://github.com/iaylee'>
-                        <img src={folder} style={{ width: '60px', height: '60px', display: 'inline-block' }}></img>
+                        <img src={folder} style={{ width: '40px', height: '40px', display: 'inline-block' }}></img>
                      </a>
-                     <p>
+                     <p style={{ fontSize: 14}}>
                         Folder
                      </p>
                   </Icon>
@@ -132,8 +132,9 @@ const App = () => (
                {/* have a welcome window open when users enter the 
                page to explain the icons or provide short links */}
                <WindowComponent
-                  title="About"
+                  title=" About"
                   toolbar="true"
+                  icon={palette}
                   first="File"
                   second="Edit"
                   third="Save"
