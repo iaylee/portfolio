@@ -11,7 +11,6 @@ import {
    WindowHeader
 } from 'react95';
 
-
 import sunset from "../images/sunset.png"
 
 //implement closing window when clicked X button
@@ -72,6 +71,8 @@ const Wrapper = styled.div`
 
 //Props: title, toolbar, [first, second, third]
 export default function WindowComponent(props) {
+   //props.type -> what type of window component
+   //props.variant -> check condition to check what variant it is and then
 
    return (
       <Wrapper>
@@ -106,7 +107,15 @@ export default function WindowComponent(props) {
                   </Button>
                </Toolbar>)}
 
+            
             <img src={sunset} style={{ width: '350px', height: '200px'}}/>
+            <h1>Welcome!</h1>
+            <h3> As you take a look, please keep in mind that this site is currently in development.</h3>
+            <h3>Thank you :)</h3>
+            <br></br>
+            <p> Last deployment: 03/01/23</p>
+            <br></br>
+            <p><small> &copy;  Sophia Lee</small></p>
             </Window>
 
          </Draggable>

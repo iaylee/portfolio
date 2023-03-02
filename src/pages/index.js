@@ -57,9 +57,15 @@ const Icon = styled.span`
     padding: 1em;
 `;
 
-const App = () => (
+const App = () => {
+   const [isOpen, setIsOpen] = useState(true);
 
-   <body>
+   function handleClick() {
+      setIsOpen(!isOpen);
+   }
+
+   return (
+      <body>
       <GlobalStyles />
       <ThemeProvider theme={lilac}>
          <header>
@@ -118,10 +124,10 @@ const App = () => (
                      </p>
                   </Icon>
 
-                  <Icon>
-                     <a href='https://github.com/iaylee'>
+                  <Icon onClick={handleClick}>
+                     {/* <a href='https://github.com/iaylee'> */}
                         <img src={folder} style={{ width: '40px', height: '40px', display: 'inline-block' }}></img>
-                     </a>
+                     {/* </a> */}
                      <p style={{ fontSize: 14}}>
                         Folder
                      </p>
@@ -129,9 +135,10 @@ const App = () => (
                </IconSection>
 
 
-               {/* have a welcome window open when users enter the 
+               {
+               /* have a welcome window open when users enter the 
                page to explain the icons or provide short links */}
-               <WindowComponent
+               {isOpen ? <WindowComponent
                   title=" About"
                   toolbar="true"
                   icon={palette}
@@ -140,7 +147,7 @@ const App = () => (
                   third="Save"
                   content="I might write something here, or not, we'll see."
 
-               />
+               /> : null}
 
             </Desktop>
          </main>
@@ -152,7 +159,7 @@ const App = () => (
 
       </ThemeProvider>
    </body>
-
-);
+   );
+            };
 
 export default App;
